@@ -3,31 +3,8 @@ extern crate rand;
 use std::str;
 use std::collections::HashSet;
 use std::collections::HashMap;
-/*
-Let us see what goes wrong when a stream cipher key is used more than once. Below are eleven
-hex-encoded ciphertexts that are the result of encrypting eleven plaintexts with a stream cipher,
-all with the same stream cipher key. Your goal is to decrypt the last ciphertext, and submit the
-secret message within it as solution.
 
-Hint: XOR the ciphertexts together, and consider what happens when a space is XORed with a
-character in [a-zA-Z].
 
-space XOR char flips case of char
-ct1_1 is pt1_1 ^ k_1
-ct2_1 is pt2_1 ^ k_1
-ct1_1 ^ ct2_1 = pt1_1 ^ pt2_1 so xor-ing the cipher text produces the same result as xor-ing the plaintext
-
-similarly ct1_1 ^ ct3_1 = pt_1 ^ pt3_1 etc etc
-
-If the key is just reused twice, we can use pattern-matching to discover the plaintext. Pattern
-matching is sometimes also called crib-dragging. Pattern-matching involves picking frequently used
-words/phrases and xor-ing the word with the xor of the two cipher texts. If the result is
-human-readable, then the word must have been in one of the plain texts.
-
-But we are given 11 cipher texts, not just 2. Similar to crib-dragging, we can pick a word, xor it
-against the cipher text, and xor it with every other cipher text. If they all make sense then it is
-almost certainly accurate.
-*/
 #[allow(dead_code)]
 static COUNT_THRESHOLD: f64 = 1.0;
 
@@ -58,16 +35,6 @@ fn grab_crib(word: &[u8], cipher: &[u8], cipher_texts: &[Vec<u8>], dict: &HashSe
     return None;
 }
 
-/* Based on the given hint, another approach is to look at the result of xoring two cipher texts,
- * if the result is a letter than the plaintexts have either a space of a flipped case letter at
- * that position (is it really?).
- *
- * So we xor ci_j with ck_j and if the results are all letters or special then ci_j is a spaces and
- * ck_j are the flipped letters
- *
- * This does not work because too many characters xor to each character. Instead we take a simpler
- * approach and xor
- */
 fn as_u8(s: &str) -> Vec<u8> {
     let mut v = Vec::with_capacity(s.len()/2);
     let mut chars = s.chars();

@@ -2,11 +2,6 @@ extern crate hyper;
 
 use hyper::Client;
 
-/*
- * When a decrypted CBC ciphertext ends in an invalid pad the web server returns a
- * 403 error code (forbidden request). When the CBC padding is valid, but the message is malformed,
- * the web server returns a 404 error code (URL not found).
- */
 const BLOCK_LEN: usize = 16;
 
 fn as_u8(s: &str) -> Vec<u8> {

@@ -6,8 +6,7 @@ use cryptography::vid_mac;
 use std::fs::File;
 use std::io::prelude::*;
 
-/* 03c08f4ee0b576fe319338139c045c89c3e8e9409633bea29442e21425006ea8
- */
+
 #[allow(dead_code)]
 fn as_u8(s: &str) -> Vec<u8> {
     let mut v = Vec::with_capacity(s.len()/2);

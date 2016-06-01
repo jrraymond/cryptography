@@ -1,9 +1,7 @@
 use std::io::{self, BufReader};
 use std::io::prelude::*;
 
-/* DOES NOT WORK
- *
- * a    t    t    a    c    k       a    t       d    a    w    n   message
+/* a    t    t    a    c    k       a    t       d    a    w    n   message
  * 97 116   116   97   99   107 32  97  16  32  100  97   199  110  plaintext
  * 09   e1   c5   f7   0a   65  ac  51   94 58   e7  e5    3f   36  ciphertext
  */
