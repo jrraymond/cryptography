@@ -1,0 +1,11 @@
+[package]
+name = "cryptography"
+version = "0.1.0"
+authors = ["Justin Raymond <justin.raymond.14@gmail.com>"]
+
+[dependencies]
+find_folder = "0.3.0"
+hyper = "0.9.6"
+rand = "0.3.14"
+rust-crypto = "0.2.36"
+rust-gmp = "0.3.1"
